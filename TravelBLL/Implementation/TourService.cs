@@ -1,11 +1,15 @@
-﻿using System;
+﻿using Binbin.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using TravelBLL.Filters;
 using TravelBLL.Interfaces;
 using TravelDAL.Entities;
 using TravelDAL.Repository.Interface;
+//using Binbin.Linq;
 
 namespace TravelBLL.Implementation
 {
@@ -39,9 +43,44 @@ namespace TravelBLL.Implementation
             return _locationRepository.GetAll();
         }
 
-        public IEnumerable<Tour> GetAllTour()
+
+
+        public IEnumerable<Tour> GetAllTour(List<TourFilter> filters)
         {
-            return _tourRepository.GetAll();
+            if (filters == null)
+            {
+                return _tourRepository.GetAll();
+            }
+
+            // Filters
+            // x => x.Developer.Name == "Ubisoft" ||
+            // x => x.Developer.Name == "Zaremba"
+
+            var predicates = new List<Expression<Func<Tour, bool>>>();
+
+
+            //var results = filters.GroupBy(
+            // p => p.Name,
+            // p => p.Type,
+            //(key, g) => new { Type = key, Name = g.ToList() });
+
+            var results2 = filters.GroupBy(x => x.Type);
+            foreach (var item in results2)
+            {
+                var builder = PredicateBuilder.Create(item.FirstOrDefault().Predicate);
+                for (int i = 1; i < item.Count(); i++)
+                {
+                    builder.Or(item.ToArray()[i].Predicate);
+                }
+                predicates.Add(builder);
+            }
+
+            var b = PredicateBuilder.Create(predicates.FirstOrDefault());
+            for (int i = 1; i < predicates.Count(); i++)
+            {
+                b.And(predicates[i]);
+            }
+            return _tourRepository.GetAll().Where(b.Compile());
         }
 
         public IEnumerable<string> GetFlight()

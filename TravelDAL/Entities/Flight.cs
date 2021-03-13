@@ -30,6 +30,6 @@ namespace TravelDAL.Entities
         public string StartTimeBack { get; set; }
         public string EndTimeBack { get; set; }
 
-        public ICollection<Tour> Tours { get; set; }
+        public virtual ICollection<Tour> Tours { get; set; }
     }
 }

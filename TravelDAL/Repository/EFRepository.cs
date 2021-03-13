@@ -46,10 +46,10 @@ namespace TravelDAL.Repository
         public IEnumerable<TEntity> GetAll()
         {
             var entities = _set.AsQueryable();
-            foreach (var item in entities)
-            {
-                _set.Include(x => item);
-            }
+            //foreach (var item in entities)
+            //{
+            //    _set.Include(x => item);
+            //}
 
             return _set.AsEnumerable();
         }

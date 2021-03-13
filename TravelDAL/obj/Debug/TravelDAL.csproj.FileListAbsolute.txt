@@ -10,3 +10,15 @@ E:\Asp. Net Lessons\TravelMVC\TravelDAL\obj\Debug\TravelDAL.csproj.CoreCompileIn
 E:\Asp. Net Lessons\TravelMVC\TravelDAL\obj\Debug\TravelDAL.csproj.CopyComplete
 E:\Asp. Net Lessons\TravelMVC\TravelDAL\obj\Debug\TravelDAL.dll
 E:\Asp. Net Lessons\TravelMVC\TravelDAL\obj\Debug\TravelDAL.pdb
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\TravelDAL.dll.config
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\TravelDAL.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\TravelDAL.pdb
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\EntityFramework.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\EntityFramework.xml
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\obj\Debug\TravelDAL.csprojAssemblyReference.cache
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\obj\Debug\TravelDAL.csproj.CoreCompileInputs.cache
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\obj\Debug\TravelDAL.csproj.CopyComplete
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\obj\Debug\TravelDAL.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelDAL\obj\Debug\TravelDAL.pdb

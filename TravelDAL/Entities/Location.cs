@@ -24,6 +24,6 @@ namespace TravelDAL.Entities
         public string MainImage { get; set; }
         public List<string> ImagesGallery { get; set; }
 
-        public ICollection<Tour> Tours { get; set; }
+        public virtual ICollection<Tour> Tours { get; set; }
     }
 }

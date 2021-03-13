@@ -172,6 +172,8 @@ body {
     background-image: url(../Images/bg2.jpg);
     background-image: url(../Images/bg4.jpg);
     background-image: url(../Images/bg3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     font-family: Cooper;
     /*background-image: url(../Images/bg3.jpg);*/
 }

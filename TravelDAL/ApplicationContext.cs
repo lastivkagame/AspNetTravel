@@ -16,7 +16,7 @@ namespace TravelDAL
         public ApplicationContext()
             : base("name=ApplicationContext")
         {
-            Database.SetInitializer(new TourInitializer());
+            //Database.SetInitializer(new TourInitializer());
         }
 
         public DbSet<Location> Locations { get; set; }

@@ -28,10 +28,10 @@ namespace TravelDAL.Entities
         public string Type { get; set; } // all inclusive or other
 
         [Required]
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
 
         [Required]
-        public Flight Flight { get; set; }
+        public virtual Flight Flight { get; set; }
 
         [MaxLength(500)]
         public string Description { get; set; }

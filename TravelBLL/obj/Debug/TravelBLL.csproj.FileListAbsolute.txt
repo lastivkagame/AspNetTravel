@@ -10,3 +10,18 @@ E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.csproj.CoreCompileIn
 E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.csproj.CopyComplete
 E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.dll
 E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.pdb
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\TravelBLL.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\TravelBLL.pdb
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\TravelDAL.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\EntityFramework.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\TravelDAL.pdb
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\TravelDAL.dll.config
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\EntityFramework.xml
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\obj\Debug\TravelBLL.csprojAssemblyReference.cache
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\obj\Debug\TravelBLL.csproj.CoreCompileInputs.cache
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\obj\Debug\TravelBLL.csproj.CopyComplete
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\obj\Debug\TravelBLL.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\obj\Debug\TravelBLL.pdb
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\Binbin.Linq.PredicateBuilder.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\System.Diagnostics.DiagnosticSource.xml

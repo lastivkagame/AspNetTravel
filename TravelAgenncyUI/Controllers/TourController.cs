@@ -1,12 +1,16 @@
 ﻿using AutoMapper;
+using Binbin.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Compilation;
 using System.Web.Mvc;
 using TravelAgenncyUI.Models;
 using TravelAgenncyUI.Utils.Helpers;
+using TravelBLL.Filters;
 using TravelBLL.Interfaces;
 using TravelDAL.Entities;
 
@@ -50,11 +54,13 @@ namespace TravelAgenncyUI.Controllers
             //} 
             #endregion
 
-            var tour = _mapper.Map<List<TourViewModel>>(_tourService.GetAllTour());
+            var tour = _mapper.Map<List<TourViewModel>>(_tourService.GetAllTour(null));
+            SetViewBag();
             if (String.IsNullOrEmpty(search))
             {
                 return View(tour);
             }
+
 
             return View(tour.Where(x => x.Name.Contains(search)).ToList());
 
@@ -70,9 +76,23 @@ namespace TravelAgenncyUI.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.Locactions = _tourService.GetAllLocation();
-            ViewBag.Flights = _tourService.GetAllFlight();
+            //ViewBag.Locactions = GetLocationsString(_tourService.GetAllLocation());
+            //ViewBag.Locactions = _tourService.GetAllLocation();
+            //ViewBag.Flights = _tourService.GetAllFlight();
+            SetViewBag();
             return View();
+        }
+
+        public List<string> GetLocationsString(IEnumerable<Location> list)
+        {
+            List<string> loc = new List<string>();
+
+            foreach (var item in list)
+            {
+                loc.Add(item.Hotel);
+            }
+
+            return loc;
         }
 
         [HttpPost]
@@ -112,6 +132,62 @@ namespace TravelAgenncyUI.Controllers
         public ActionResult Edit()
         {
             return View();
+        }
+
+        public ActionResult Filter(string type, string value)
+        {
+
+            var filter = new TourFilter()
+            {
+                Name = value,
+                Type = type
+            };
+
+            // predicate: x => x.Developer == Bogdan
+            // predicate: x => x.Genre == RPG
+
+            if (type == "location")
+            {
+                filter.Predicate = (x => x.Location.Hotel == value);
+            }
+            else if (type == "flight")
+            {
+                filter.Predicate = (x => x.Flight.StartCityTo == value);
+            }
+
+            var filters = new List<TourFilter>();
+            if (Session["TourFilter"] != null)
+            {
+                filters = Session["TourFilter"] as List<TourFilter>;
+            }
+
+            //var results = filters.GroupBy(
+            // p => p.Name,
+            // p => p.Type,
+            // (key, g) => new { PersonId = key, Cars = g.ToList() });
+
+            var found = filters.FirstOrDefault(f => f.Name == value && f.Type == type);
+            if (found != null)
+            {
+                filters.Remove(found);
+            }
+            else
+            {
+                filters.Add(filter);
+            }
+
+            Session["TourFilter"] = filters;
+
+            var games = _tourService.GetAllTour(filters);
+            SetViewBag();
+
+            return PartialView("ToursPartial", _mapper.Map<List<TourViewModel>>(games));
+        }
+
+        private void SetViewBag()
+        {
+            ViewBag.Locactions = _tourService.GetAllLocation().Select(x => x.Hotel);
+            ViewBag.Flights = _tourService.GetAllFlight().Select(x => x.StartCityTo);
         }
     }
 }
