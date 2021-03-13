@@ -1,0 +1,12 @@
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\TravelBLL.dll
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\TravelBLL.pdb
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\TravelDAL.dll
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\EntityFramework.dll
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\TravelDAL.pdb
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\TravelDAL.dll.config
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\EntityFramework.xml
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.csprojAssemblyReference.cache
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.csproj.CoreCompileInputs.cache
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.csproj.CopyComplete
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.dll
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\obj\Debug\TravelBLL.pdb
