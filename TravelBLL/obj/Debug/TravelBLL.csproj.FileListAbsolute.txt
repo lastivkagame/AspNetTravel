@@ -25,3 +25,6 @@ C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\obj\Debug\TravelBLL.pdb
 C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\Binbin.Linq.PredicateBuilder.dll
 C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
 C:\Users\dev\Desktop\spd926\AspNetTravel\TravelBLL\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\Binbin.Linq.PredicateBuilder.dll
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+E:\Asp. Net Lessons\TravelMVC\TravelBLL\bin\Debug\System.Diagnostics.DiagnosticSource.xml

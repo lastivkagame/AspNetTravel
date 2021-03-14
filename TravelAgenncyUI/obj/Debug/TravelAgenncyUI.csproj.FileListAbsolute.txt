@@ -199,3 +199,4 @@ C:\Users\dev\Desktop\spd926\AspNetTravel\TravelAgenncyUI\bin\roslyn\vbc.rsp
 C:\Users\dev\Desktop\spd926\AspNetTravel\TravelAgenncyUI\bin\roslyn\VBCSCompiler.exe
 C:\Users\dev\Desktop\spd926\AspNetTravel\TravelAgenncyUI\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\dev\Desktop\spd926\AspNetTravel\TravelAgenncyUI\bin\Binbin.Linq.PredicateBuilder.dll
+E:\Asp. Net Lessons\TravelMVC\TravelAgenncyUI\bin\Binbin.Linq.PredicateBuilder.dll

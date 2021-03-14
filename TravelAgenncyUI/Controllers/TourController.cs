@@ -124,8 +124,8 @@ namespace TravelAgenncyUI.Controllers
 
         public ActionResult Edit(int id)
         {
-            var game = _tourService.GetTour(id);
-            return View(_mapper.Map<TourViewModel>(game));
+            var tour = _tourService.GetTour(id);
+            return View(_mapper.Map<TourViewModel>(tour));
         }
 
         [HttpPost]
@@ -150,9 +150,13 @@ namespace TravelAgenncyUI.Controllers
             {
                 filter.Predicate = (x => x.Location.Hotel == value);
             }
-            else if (type == "flight")
+            else if (type == "flightcitystart")
             {
                 filter.Predicate = (x => x.Flight.StartCityTo == value);
+            }
+            else if (type == "flighttype")
+            {
+                filter.Predicate = (x => x.Flight.Type == value);
             }
 
             var filters = new List<TourFilter>();
@@ -188,6 +192,8 @@ namespace TravelAgenncyUI.Controllers
         {
             ViewBag.Locactions = _tourService.GetAllLocation().Select(x => x.Hotel);
             ViewBag.Flights = _tourService.GetAllFlight().Select(x => x.StartCityTo);
+            ViewBag.FlightType = _tourService.GetAllFlight().Select(x => x.Type);
+            ViewBag.FlightForChoose = _tourService.GetAllFlight().Select(x => x.Type + " (from " + x.StartCityTo + " at " + x.StartTimeTo + " )"); ;
         }
     }
 }

@@ -4,14 +4,21 @@
     }
 }
 
-function ChoosenUrlImg() {
-    $("#urlimage").addClass("d-block");
-    $("#localImg").addClass("d-none");
+function onBtnSerch(e)
+{
+    location.href = `/Tour/Index?search=${inputsearch.value}`;
 }
+function ChoosenUrlImg(element) {
+    var selector = $(element).data("input-to-show");
+    var selector2 = $(element).data("input-to-hide");
 
-function ChoosenLocalImg() {
-    $("#urlimage").addClass("d-none");
-    $("#localImg").addClass("d-block");
+    if ($(element).is(':checked')) {
+        $(selector).hide();
+        $(selector2).show();
+    } else {
+        $(selector).show();
+        $(selector2).hide();
+    }
 }
 
 function setFilter(element) {

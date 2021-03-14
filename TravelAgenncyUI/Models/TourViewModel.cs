@@ -14,11 +14,11 @@ namespace TravelAgenncyUI.Models
         [StringLength(200, ErrorMessage = "Max count of symbols are 200")]
         public string Name { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        [Range(1, 1000)]
         public int? ResortNights { get; set; }
         public string Price { get; set; }
 
-        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        [Range(1, 200, ErrorMessage = "Please enter a value bigger than {1}")]
         public int? AmountPeople { get; set; }
         public string Type { get; set; } // all inclusive or other
         public string Location { get; set; }

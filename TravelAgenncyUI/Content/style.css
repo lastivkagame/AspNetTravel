@@ -2047,6 +2047,7 @@ Container / Wrapper
     width: 8vh;
     margin-top: -5px;
     background-size: cover;
+    padding-right: 70px;
 }
 
 .dashboard-wrapper {

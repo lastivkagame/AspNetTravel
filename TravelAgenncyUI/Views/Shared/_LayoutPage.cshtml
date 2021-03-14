@@ -26,10 +26,10 @@
                             }*@
                         <li class="nav-item">
                             <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" type="text"
+                                <input class="form-control" id="inputsearch" type="text"
                                        onkeydown="onSearch(event)"
                                        placeholder="Search..">
-                                <div class="btn-search" onclick="onSearch(event)"></div>
+                                <div class="btn-search" onclick="onBtnSerch(event)"></div>
                             </div>
                         </li>
                         <li class="nav-item dropdown notification">
@@ -209,8 +209,8 @@
                                                 <div id="submenu-1-2" class="collapse submenu" style="">
                                                     <ul class="nav flex-column">
                                                         @*<li class="nav-item">
-                                                            <a class="nav-link" href="index.html"> Dashboard</a>
-                                                        </li>*@
+                                                                <a class="nav-link" href="index.html"> Dashboard</a>
+                                                            </li>*@
                                                         <ul class="nav flex-column">
                                                             @foreach (var item in ViewBag.Locactions)
                                                             {
@@ -224,39 +224,18 @@
                                                 </div>
                                             </li>
 
-
-                                            @*<li class="nav-item">
-                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Flights</a>
-                                                <div id="submenu-1-2" class="collapse submenu" style="">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="index.html"> Dashboard</a>
-                                                        </li>
-                                                        <ul class="nav flex-column">
-                                                            @foreach (var item in ViewBag.Flights)
-                                                            {
-                                                                <li class="nav-item">
-                                                                    <input data-type="developer" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
-                                                                    <label for="@item">@item</label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </ul>
-                                                </div>
-                                            </li>*@
-
                                             <li class="nav-item">
-                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Flights</a>
-                                                <div id="submenu-1-1" class="collapse submenu" style="">
+                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-3" aria-controls="submenu-1-3">Flight Type</a>
+                                                <div id="submenu-1-3" class="collapse submenu" style="">
                                                     <ul class="nav flex-column">
                                                         @*<li class="nav-item">
-                                                            <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
-                                                        </li>*@
+                                                                <a class="nav-link" href="index.html"> Dashboard</a>
+                                                            </li>*@
                                                         <ul class="nav flex-column">
-                                                            @foreach (var item in ViewBag.Flights)
+                                                            @foreach (var item in ViewBag.FlightType)
                                                             {
                                                                 <li class="nav-item">
-                                                                    <input data-type="flight" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
+                                                                    <input data-type="flighttype" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
                                                                     <label for="@item">@item</label>
                                                                 </li>
                                                             }
@@ -266,10 +245,52 @@
                                             </li>
 
                                             @*<li class="nav-item">
-            <a class="nav-link" href="pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
-        </li>
+                                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Flights</a>
+                                                    <div id="submenu-1-2" class="collapse submenu" style="">
+                                                        <ul class="nav flex-column">
+                                                            <li class="nav-item">
+                                                                <a class="nav-link" href="index.html"> Dashboard</a>
+                                                            </li>
+                                                            <ul class="nav flex-column">
+                                                                @foreach (var item in ViewBag.Flights)
+                                                                {
+                                                                    <li class="nav-item">
+                                                                        <input data-type="developer" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
+                                                                        <label for="@item">@item</label>
+                                                                    </li>
+                                                                }
+                                                            </ul>
+                                                        </ul>
+                                                    </div>
+                                                </li>*@
 
-        </li>*@
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Flights: Start City</a>
+                                                <div id="submenu-1-1" class="collapse submenu" style="">
+                                                    <ul class="nav flex-column">
+                                                        @*<li class="nav-item">
+                                                                <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
+                                                            </li>*@
+                                                        <ul class="nav flex-column">
+                                                            @foreach (var item in ViewBag.Flights)
+                                                            {
+                                                                <li class="nav-item">
+                                                                    <input data-type="flightcitystart" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
+                                                                    <label for="@item">@item</label>
+                                                                </li>
+                                                            }
+                                                        </ul>
+                                                    </ul>
+                                                </div>
+                                            </li>
+
+
+
+                                            @*<li class="nav-item">
+                                                    <a class="nav-link" href="pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
+                                                </li>
+
+                                                </li>*@
                                         </ul>
                                     </div>
                                 </li>

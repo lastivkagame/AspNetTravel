@@ -34,11 +34,11 @@ namespace TravelDAL
 
             var flig = new List<Flight>
             {
-                new Flight(){FlightName="Flight #24d2s", StartCityTo="Kiev", StartCityBack="in tour", StartTimeTo="13:25", EndTimeTo="20:35", StartTimeBack="9:00", EndTimeBack="12:35"},
-                new Flight(){FlightName="Flight #46dsd", StartCityTo="Lviv", StartCityBack="in tour", StartTimeTo="23:15", EndTimeTo="8:30", StartTimeBack="7:20", EndTimeBack="3:45"},
-                new Flight(){FlightName="Flight #989sd", StartCityTo="Rivne", StartCityBack="in tour", StartTimeTo="11:25", EndTimeTo="19:55", StartTimeBack="8:00", EndTimeBack="11:25"},
-                new Flight(){FlightName="Flight #24d2a", StartCityTo="Kharkiv", StartCityBack="Bodrum", StartTimeTo="17:05", EndTimeTo="03:20", StartTimeBack="7:00", EndTimeBack="10:40"},
-                new Flight(){FlightName="Flight #37d2q", StartCityTo="Kiev", StartCityBack="in tour", StartTimeTo="10:45", EndTimeTo="16:55", StartTimeBack="12:35", EndTimeBack="20:20"},
+                new Flight(){FlightName="Flight #24d2s", StartCityTo="Kiev", Type="Business Class", StartTimeTo="13:25", StartTimeBack="9:00"},
+                new Flight(){FlightName="Flight #46dsd", StartCityTo="Lviv", Type="First Class", StartTimeTo="23:15", StartTimeBack="7:20" },
+                new Flight(){FlightName="Flight #989sd", StartCityTo="Rivne", Type="First Class", StartTimeTo="11:25", StartTimeBack="8:00"},
+                new Flight(){FlightName="Flight #24d2a", StartCityTo="Kharkiv", Type="Economy Class", StartTimeTo="17:05", StartTimeBack="7:00"},
+                new Flight(){FlightName="Flight #37d2q", StartCityTo="Kiev", Type="Economy Class", StartTimeTo="10:45", StartTimeBack="12:35"},
             };
 
             var tours = new List<Tour>

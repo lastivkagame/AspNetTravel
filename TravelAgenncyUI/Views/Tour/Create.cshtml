@@ -8,18 +8,19 @@
 @model TravelAgenncyUI.Models.TourViewModel
 
 @{
-    ViewBag.Title = "Create";
+    //ViewBag.Title = "Create";
+    ViewBag.Title = "Tour Store";
     Layout = "~/Views/Shared/_LayoutPage.cshtml";
 }
 <div class="dashboard-wrapper">
     <div class="container pt-4">
-        <div class="row">
-            <h2>Create</h2>
+        <div class="row mb-5">
+            <h2 class="invisible">novisbl</h2>
 
-            @using (Html.BeginForm("Create", "Games", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            @using (Html.BeginForm("Create", "Tour", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
-        <div class="form-horizontal">
-            <h4>TourViewModel</h4>
+        <div class="form-horizontal mb-3">
+            <h2>Create Tour</h2>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group">
@@ -27,14 +28,6 @@
                 <div class="col-md-10">
                     @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
                 </div>
             </div>
 
@@ -47,18 +40,10 @@
             </div>
 
             <div class="form-group">
-                @Html.LabelFor(model => model.Flight, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Flight, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Flight, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
                 @Html.LabelFor(model => model.ResortNights, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ResortNights, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.ResortNights, "", new { @class = "text-danger" })
+                    @Html.EditorFor(model => model.ResortNights, new { htmlAttributes = new { @type = "number", @min = "1", @max = "500", @value = "0", @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ResortNights, null, new { @type = "number" })
                 </div>
             </div>
 
@@ -78,17 +63,17 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div onclick="ChoosenUrlImg()">
-                    <input type="radio" id="radioUrlImg" />
-                    <label>Image Url</label>
-                </div>
-                <div onclick="ChoosenLocalImg()">
-                    <input type="radio" id="radioFileImg" />
-                    <label>Local Image</label>
+            <div class="form-group col-md-10 my-image-chooser">
+                <div>
+                    <input type="radio" data-input-to-show="#localImg" data-input-to-hide="#urlimage" onchange="ChoosenUrlImg(this)" name="img-group" id="radioUrlImg" />
+                    <label for="radioUrlImg">Image Url</label>
                 </div>
                 <div>
-                    <input type="file" name="image" id="localImg" placeholder="choose" />
+                    <input type="radio" data-input-to-show="#urlimage" data-input-to-hide="#localImg" onchange="ChoosenUrlImg(this)" name="img-group" id="radioFileImg" />
+                    <label for="radioFileImg">Local Image</label>
+                </div>
+                <div class="w-100">
+                    <input type="file" accept=".jpg, .png, .jpeg, .gif, .bmp, .tif, .tiff|image/*" name="image" id="localImg" placeholder="choose" /> @**@
                     <input type="text" name="image" id="urlimage" placeholder="enter URL" />
                 </div>
             </div>
@@ -98,26 +83,32 @@
             </div>
 
             <div class="col-md-10">
-                @Html.DropDownList("Flights", new SelectList(ViewBag.Flights), "Choose flight", new { @class = "form-control" })
+                @*@Html.DropDownList("Flights", new SelectList(ViewBag.Flights), "Choose flight", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Flight, "", new { @class = "text-danger" })*@
+                @Html.DropDownListFor(model => model.Flight, new SelectList(ViewBag.FlightForChoose), "Choose flights", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Flight, "", new { @class = "text-danger" })
 
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.Flight, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.Flight, "", new { @class = "text-danger" })
-                </div>
+                @*<div class="col-md-10">
+                @Html.EditorFor(model => model.Flight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Flight, "", new { @class = "text-danger" })
+            </div>*@
             </div>
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                    <input type="submit" value="Create" id="MyCreateInput" class="btn btn-default" />
+                </div>
+                <div class="col-md-10 text-center m-t-20">
+                    @Html.ActionLink("Back to List", "Index")
                 </div>
             </div>
+            
         </div>
             }
 
-            <div>
+            @*<div>
                 @Html.ActionLink("Back to List", "Index")
-            </div>
+            </div>*@
         </div>
     </div>
 </div>

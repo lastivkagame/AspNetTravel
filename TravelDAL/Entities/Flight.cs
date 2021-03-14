@@ -19,16 +19,13 @@ namespace TravelDAL.Entities
         [Required]
         public string StartCityTo { get; set; }
 
-        public string StartCityBack { get; set; }
-
         [Required]
         public string StartTimeTo { get; set; }
 
-        public string EndTimeTo { get; set; }
-
         [Required]
         public string StartTimeBack { get; set; }
-        public string EndTimeBack { get; set; }
+
+        public string Type { get; set; }
 
         public virtual ICollection<Tour> Tours { get; set; }
     }
