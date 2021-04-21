@@ -13,19 +13,18 @@ namespace TravelDAL.Entities
         [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string FlightName { get; set; }
+       
 
         [Required]
-        public string StartCityTo { get; set; }
+        public string FlightDateToBegan { get; set; } //Date when we flight to country where we relax
 
         [Required]
-        public string StartTimeTo { get; set; }
+        public string FlightDateBackBegan { get; set; } //Date when we flight back to home(country)
 
         [Required]
-        public string StartTimeBack { get; set; }
+        public string StartTimeHours { get; set; } //Date(HOURS) when we flight to country where we relax
 
-        public string Type { get; set; }
+        public string Type { get; set; } //such as bussnes class, standart ...
 
         public virtual ICollection<Tour> Tours { get; set; }
     }

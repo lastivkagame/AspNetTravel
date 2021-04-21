@@ -7,331 +7,75 @@
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Content/style.css" rel="stylesheet" />
     <link href="~/Content/custom.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/Content/template-style.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="dashboard-main-wrapper">
-        <div class="dashboard-header">
-            <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="~/"><div id="logoimg"></div> @ViewBag.Title</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto navbar-right-top">
-                        @*@foreach (var item in ViewBag.Developers)
-                            {
-                                <li class="nav-item">
-                                    @item
-                                </li>
-                            }*@
-                        <li class="nav-item">
-                            <div id="custom-search" class="top-search-bar">
-                                <input class="form-control" id="inputsearch" type="text"
-                                       onkeydown="onSearch(event)"
-                                       placeholder="Search..">
-                                <div class="btn-search" onclick="onBtnSerch(event)"></div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown notification">
-                            @*<a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>*@
-                            @*<ul class="dropdown-menu dropdown-menu-right notification-dropdown">
-                                        <li>
-                                            <div class="notification-title"> Notification</div>
-                                            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 250px;">
-                                                <div class="notification-list" style="overflow: hidden; width: auto; height: 250px;">
-                                                    <div class="list-group">
-                                                        <a href="#" class="list-group-item list-group-item-action active">
-                                                            <div class="notification-info">
-                                                                <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                                <div class="notification-list-user-block">
-                                                                    <span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
-                                                                    <div class="notification-date">2 min ago</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="list-group-item list-group-item-action">
-                                                            <div class="notification-info">
-                                                                <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                                <div class="notification-list-user-block">
-                                                                    <span class="notification-list-user-name">John Abraham </span>is now following you
-                                                                    <div class="notification-date">2 days ago</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="list-group-item list-group-item-action">
-                                                            <div class="notification-info">
-                                                                <div class="notification-list-user-img"><img src="assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                                <div class="notification-list-user-block">
-                                                                    <span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
-                                                                    <div class="notification-date">2 min ago</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                        <a href="#" class="list-group-item list-group-item-action">
-                                                            <div class="notification-info">
-                                                                <div class="notification-list-user-img"><img src="assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                                <div class="notification-list-user-block">
-                                                                    <span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
-                                                                    <div class="notification-date">2 min ago</div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="list-footer"> <a href="#">View all notifications</a></div>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown connection">
-                                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
-                                    <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
-                                        <li class="connection-list">
-                                            <div class="row">
-                                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                                    <a href="#" class="connection-item"><img src="assets/images/github.png" alt=""> <span>Github</span></a>
-                                                </div>
-                                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                                    <a href="#" class="connection-item"><img src="assets/images/dribbble.png" alt=""> <span>Dribbble</span></a>
-                                                </div>
-                                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                                    <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt=""> <span>Dropbox</span></a>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                                    <a href="#" class="connection-item"><img src="assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
-                                                </div>
-                                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                                    <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png" alt=""><span>Mail chimp</span></a>
-                                                </div>
-                                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                                    <a href="#" class="connection-item"><img src="assets/images/slack.png" alt=""> <span>Slack</span></a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="conntection-footer"><a href="#">More</a></div>
-                                        </li>
-                                    </ul>
-                                </li>*@
-                            @*<li class="nav-item dropdown nav-user">
-                                    <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                                    <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                                        <div class="nav-user-info">
-                                            <h5 class="mb-0 text-white nav-user-name">John Abraham </h5>
-                                            <span class="status"></span><span class="ml-2">Available</span>
-                                        </div>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                        <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
-                                    </div>
-                                </li>*@
-                        <li class="nav-item">
-                            @*<a class="btn btn-primary" href="~/Tour/Create">Create</a>*@
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
 
-        <div class="nav-left-sidebar sidebar-dark">
-            <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 100%;">
-                <div class="menu-list" style="overflow: hidden; width: auto; height: 100%;">
-                    <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="d-xl-none d-lg-none" href="#"><!--Dashboard--></a>
-                        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="navbar-collapse collapse" id="navbarNav" style="">
-                            <ul class="navbar-nav flex-column">
-                                <li class="nav-divider">
-                                    Menu
-                                </li>
-                                <li class="nav-item ">
-                                    <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
-                                    <div id="submenu-1" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            @*<li class="nav-item">
-                                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">E-Commerce</a>
-                                                    <div id="submenu-1-2" class="collapse submenu" style="">
-                                                        <ul class="nav flex-column">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="index.html">E Commerce Dashboard</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="ecommerce-product.html">Product List</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="ecommerce-product-single.html">Product Single</a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="ecommerce-product-checkout.html">Product Checkout</a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>*@
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="~/">Main</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="~/Tour/Create">Create Tour Card</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>
-                                                <div id="submenu-1-1" class="collapse submenu" style="">
-                                                    <ul class="nav flex-column">
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="influencer-finder.html">Influencer Finder</a>
-                                                        </li>
-                                                        <li class="nav-item">
-                                                            <a class="nav-link" href="influencer-profile.html">Influencer Profile</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fa fa-fw fa-rocket"></i>Filters</a>
-                                    <div id="submenu-2" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Locations</a>
-                                                <div id="submenu-1-2" class="collapse submenu" style="">
-                                                    <ul class="nav flex-column">
-                                                        @*<li class="nav-item">
-                                                                <a class="nav-link" href="index.html"> Dashboard</a>
-                                                            </li>*@
-                                                        <ul class="nav flex-column">
-                                                            @foreach (var item in ViewBag.Locactions)
-                                                            {
-                                                                <li class="nav-item">
-                                                                    <input data-type="location" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
-                                                                    <label for="@item">@item</label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </ul>
-                                                </div>
-                                            </li>
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-3" aria-controls="submenu-1-3">Flight Type</a>
-                                                <div id="submenu-1-3" class="collapse submenu" style="">
-                                                    <ul class="nav flex-column">
-                                                        @*<li class="nav-item">
-                                                                <a class="nav-link" href="index.html"> Dashboard</a>
-                                                            </li>*@
-                                                        <ul class="nav flex-column">
-                                                            @foreach (var item in ViewBag.FlightType)
-                                                            {
-                                                                <li class="nav-item">
-                                                                    <input data-type="flighttype" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
-                                                                    <label for="@item">@item</label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </ul>
-                                                </div>
-                                            </li>
-
-                                            @*<li class="nav-item">
-                                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Flights</a>
-                                                    <div id="submenu-1-2" class="collapse submenu" style="">
-                                                        <ul class="nav flex-column">
-                                                            <li class="nav-item">
-                                                                <a class="nav-link" href="index.html"> Dashboard</a>
-                                                            </li>
-                                                            <ul class="nav flex-column">
-                                                                @foreach (var item in ViewBag.Flights)
-                                                                {
-                                                                    <li class="nav-item">
-                                                                        <input data-type="developer" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
-                                                                        <label for="@item">@item</label>
-                                                                    </li>
-                                                                }
-                                                            </ul>
-                                                        </ul>
-                                                    </div>
-                                                </li>*@
-
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Flights: Start City</a>
-                                                <div id="submenu-1-1" class="collapse submenu" style="">
-                                                    <ul class="nav flex-column">
-                                                        @*<li class="nav-item">
-                                                                <a class="nav-link" href="dashboard-influencer.html">Influencer</a>
-                                                            </li>*@
-                                                        <ul class="nav flex-column">
-                                                            @foreach (var item in ViewBag.Flights)
-                                                            {
-                                                                <li class="nav-item">
-                                                                    <input data-type="flightcitystart" type="checkbox" id="@item" onclick="setFilter(this)" value="@item" name="@item" />
-                                                                    <label for="@item">@item</label>
-                                                                </li>
-                                                            }
-                                                        </ul>
-                                                    </ul>
-                                                </div>
-                                            </li>
-
-
-
-                                            @*<li class="nav-item">
-                                                    <a class="nav-link" href="pages/cards.html">Cards <span class="badge badge-secondary">New</span></a>
-                                                </li>
-
-                                                </li>*@
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-fw fa-chart-pie"></i>Chart</a>
-                                    <div id="submenu-3" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-c3.html">C3 Charts</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-chartist.html">Chartist Charts</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-charts.html">Chart</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-morris.html">Morris</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-sparkline.html">Sparkline</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-gauge.html">Guage</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div><div class="slimScrollBar" style="background: rgb(0, 0, 0); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 848px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div>
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="~/AdditionalTemplateComponents/assets/img/logos/logo-main1.png" alt="" /></a> @*navbar-logo.svg*@
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ml-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="~/Tour/Index">Main</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="~/Tour/ToursPage"> Tours </a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Sign In</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">My Account</a></li>
+                    @*<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>*@
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
-        @RenderBody()
-    </div>
+    </nav>
+
+    @RenderBody();
+
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                <div class="col-lg-4 text-lg-right">
+                    <a class="mr-3" href="#!">Privacy Policy</a>
+                    <a href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="~/Scripts/jquery-3.0.0.min.js"></script>
     <script src="~/Scripts/popper.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/custom.js"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Third party plugin JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <!-- Contact form JS-->
+    <script src="assets/mail/jqBootstrapValidation.js"></script>
+    <script src="assets/mail/contact_me.js"></script>
+    <!-- Core theme JS-->
+    <script src="~/Content/template-script.js"></script>
 </body>
 </html>
 

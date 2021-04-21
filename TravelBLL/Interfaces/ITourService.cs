@@ -13,9 +13,11 @@ namespace TravelBLL.Interfaces
         IEnumerable<Tour> GetAllTour(List<TourFilter> filters);
         IEnumerable<Flight> GetAllFlight();
         IEnumerable<Location> GetAllLocation();
+        IEnumerable<ImageForGallary> GetImageForGallaries();
         Task AddTourAsync(Tour tour);
         IEnumerable<string> GetFlight();
         IEnumerable<string> GetLocation();
+        IEnumerable<string> GetGallaries();
         Tour GetTour(int id);
     }
 }

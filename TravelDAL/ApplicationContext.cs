@@ -22,6 +22,7 @@ namespace TravelDAL
         public DbSet<Location> Locations { get; set; }
         public DbSet<Flight> Flights { get; set; }
         public DbSet<Tour> Tours { get; set; }
+        public DbSet<ImageForGallary> ImageForGallaries { get; set; }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.

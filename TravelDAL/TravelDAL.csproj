@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="ApplicationContext.cs" />
     <Compile Include="Entities\Flight.cs" />
+    <Compile Include="Entities\ImageForGallary.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Tour.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -18,14 +18,16 @@ namespace TravelBLL.Implementation
         private readonly IGenericRepository<Tour> _tourRepository;
         private readonly IGenericRepository<Flight> _frightRepository;
         private readonly IGenericRepository<Location> _locationRepository;
+        private readonly IGenericRepository<ImageForGallary> _gallaryRepository;
 
         public TourService(IGenericRepository<Tour> tourRepository,
             IGenericRepository<Flight> frightRepository,
-            IGenericRepository<Location> locationRepository)
+            IGenericRepository<Location> locationRepository, IGenericRepository<ImageForGallary> gallaryRepository)
         {
             _tourRepository = tourRepository;
             _frightRepository = frightRepository;
             _locationRepository = locationRepository;
+            _gallaryRepository = gallaryRepository;
         }
 
         public async Task AddTourAsync(Tour tour)
@@ -85,12 +87,22 @@ namespace TravelBLL.Implementation
 
         public IEnumerable<string> GetFlight()
         {
-            return _frightRepository.GetAll().Select(x => x.FlightName);
+            return _frightRepository.GetAll().Select(x => x.FlightDateToBegan.ToString());
+        }
+
+        public IEnumerable<string> GetGallaries()
+        {
+            return _gallaryRepository.GetAll().Select(x => x.Image);
+        }
+
+        public IEnumerable<ImageForGallary> GetImageForGallaries()
+        {
+            return _gallaryRepository.GetAll();
         }
 
         public IEnumerable<string> GetLocation()
         {
-            return _locationRepository.GetAll().Select(x => x.LocationFullName);
+            return _locationRepository.GetAll().Select(x => x.City + ", " + x.Country);
         }
 
         public Tour GetTour(int id)

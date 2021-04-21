@@ -62,7 +62,7 @@ namespace TravelAgenncyUI.Controllers
             }
 
 
-            return View(tour.Where(x => x.Name.Contains(search)).ToList());
+            return View(tour.Where(x => x.Hotel.Contains(search)).ToList());
 
             // var developers = new[] { "Bethesda", "Rockstar", "Ubisoft" };
             // ViewBag.Developers = developers;
@@ -89,10 +89,17 @@ namespace TravelAgenncyUI.Controllers
 
             foreach (var item in list)
             {
-                loc.Add(item.Hotel);
+                loc.Add(item.City + ", " + item.Country);
             }
 
             return loc;
+        }
+
+        public ActionResult ToursPage()
+        {
+            SetViewBag();
+
+            return View();
         }
 
         [HttpPost]
@@ -148,11 +155,11 @@ namespace TravelAgenncyUI.Controllers
 
             if (type == "location")
             {
-                filter.Predicate = (x => x.Location.Hotel == value);
+                filter.Predicate = (x => x.Hotel == value);
             }
             else if (type == "flightcitystart")
             {
-                filter.Predicate = (x => x.Flight.StartCityTo == value);
+                filter.Predicate = (x => x.Flight.FlightDateToBegan == value);
             }
             else if (type == "flighttype")
             {
@@ -190,10 +197,36 @@ namespace TravelAgenncyUI.Controllers
 
         private void SetViewBag()
         {
-            ViewBag.Locactions = _tourService.GetAllLocation().Select(x => x.Hotel);
-            ViewBag.Flights = _tourService.GetAllFlight().Select(x => x.StartCityTo);
+            ViewBag.Tours = _mapper.Map<List<TourViewModel>>(_tourService.GetAllTour(null));//_tourService.GetAllTour(null);
+
+
+
+            var tours = _mapper.Map<List<TourViewModel>>(_tourService.GetAllTour(null));
+
+            for (int i = tours.Count - 1; i >= 6; i--)
+            {
+                tours.RemoveAt(i);
+            }
+
+            //int temp = 0;
+
+            //foreach (var item in _tourService.GetAllTour(null))
+            //{
+            //    if (temp < 6)
+            //    {
+            //        tours.Add(item);
+            //    }
+
+            //    temp++;
+            //}
+
+            ViewBag.SomeDemoTours = tours;
+
+            List<string> temptry = new List<string>() { "h", "e", "l", "p" };
+            ViewBag.Locactions = _tourService.GetAllLocation().Select(x => x.City + ", " + x.Country);
+            ViewBag.Flights = _tourService.GetAllFlight().Select(x => x.FlightDateToBegan + " at " + x.StartTimeHours);
             ViewBag.FlightType = _tourService.GetAllFlight().Select(x => x.Type);
-            ViewBag.FlightForChoose = _tourService.GetAllFlight().Select(x => x.Type + " (from " + x.StartCityTo + " at " + x.StartTimeTo + " )"); ;
+           // ViewBag.FlightForChoose = _tourService.GetAllFlight().Select(x => x.Type + " (from " + x..City + ", " + x.LocationFirstFlight.City + " at " + x.LocationResortPlace.City + ", " + x.LocationResortPlace.City+ " )"); ;
         }
     }
 }
